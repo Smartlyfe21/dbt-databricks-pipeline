@@ -30,6 +30,16 @@ models:
         description: Raw relative posted time ('10 hours ago'), kept unparsed - search_date carries the time axis; parsing it is a supporter exercise.
       - name: job_salary
         description: Raw salary text, unparsed for now.
+      - name: salary_min
+        description: Lower bound of the advertised pay range. For a single amount, this is the advertised amount.
+      - name: salary_max
+        description: Upper bound of the advertised pay range. For a single amount, this equals salary_min.
+      - name: salary_avg
+        description: Midpoint of salary_min and salary_max for this posting, in the same currency and pay period.
+      - name: salary_period
+        description: Pay period extracted from the salary text (hour, day, week, month, or year). Null when no supported period is found.
+      - name: salary_currency
+        description: Currency marker extracted from the start of the salary text. Defaults to USD when no marker is present. Null when job_salary is null.
       - name: has_no_degree_mentioned
         description: Whether the posting includes 'No degree mentioned'.
       - name: has_health_insurance
