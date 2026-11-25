@@ -1,7 +1,7 @@
 WITH job_postings AS (
     SELECT job_id
     FROM {{ ref('fct_job_postings') }}
-    WHERE search_term = '{{ var("job_title") }}'
+    WHERE search_term = '{{ var("job_title", "data engineer") }}'
 ),
 
 bridge AS (
